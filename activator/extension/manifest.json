@@ -1,0 +1,8 @@
+{
+    "manifest_version": 3,
+    "name": "AutoQAI",
+    "version": "1.0",
+    "description": "AutoQAI panel for DevTools",
+    "devtools_page": "devtools.html",
+    "permissions": []
+}
