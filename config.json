@@ -1,311 +1,314 @@
 {
-    "ports": {
-        "activator": 7001,
-        "activatorApi": 7002,
-        "backend": 7000
+  "ports": {
+    "activator": 7001,
+    "activatorApi": 7002,
+    "backend": 7000
+  },
+  "browser": {
+    "driver": "selenium",
+    "type": "chrome",
+    "headless": false,
+    "cdpPort": 10112,
+    "viewport": {
+      "width": 1920,
+      "height": 1080
     },
-    "browser": {
-        "driver": "selenium",
-        "type": "chrome",
-        "headless": false,
-        "cdpPort": 10112,
-        "viewport": {
-            "width": 1920,
-            "height": 1080
-        },
-        "extensionPath": null,
-        "userDataDir": null,
-        "launchUrl": null
+    "extensionPath": null,
+    "userDataDir": null,
+    "launchUrl": null
+  },
+  "resolutions": {
+    "mobile": {
+      "width": 375,
+      "height": 667
     },
-    "resolutions": {
-        "mobile": {
-            "width": 375,
-            "height": 667
+    "tablet": {
+      "width": 768,
+      "height": 1024
+    },
+    "laptop": {
+      "width": 1366,
+      "height": 768
+    },
+    "desktop": {
+      "width": 1920,
+      "height": 1080
+    },
+    "wide": {
+      "width": 2560,
+      "height": 1440
+    }
+  },
+  "llm": {
+    "providers": {
+      "openai": {},
+      "bedrock": {
+        "region": "us-east-1"
+      },
+      "bedrockapi": {
+        "region": "us-east-1",
+        "anthropicVersion": "bedrock-2023-05-31"
+      },
+      "ghCopilot": {
+        "cwd": "./data/sessions",
+        "logLevel": "error",
+        "oneShotTimeoutMs": 300000,
+        "sessionTimeoutMs": 1800000,
+        "clientName": "autoqai"
+      },
+      "claudeCode": {
+        "cwd": "./data/sessions",
+        "oneShotTimeoutMs": 300000,
+        "sessionTimeoutMs": 1800000
+      }
+    },
+    "tasks": {
+      "default": {
+        "vision": {
+          "provider": "openai",
+          "model": "gpt-5.4-mini",
+          "temperature": 0.1,
+          "maxTokens": 4096
         },
-        "tablet": {
-            "width": 768,
-            "height": 1024
+        "testCaseGeneration": {
+          "provider": "openai",
+          "model": "gpt-5.4",
+          "temperature": 0.2,
+          "maxTokens": 30000
         },
-        "laptop": {
-            "width": 1366,
-            "height": 768
+        "testPlanGeneration": {
+          "provider": "openai",
+          "model": "gpt-5.4",
+          "temperature": 0.3,
+          "maxTokens": 16000
         },
-        "desktop": {
-            "width": 1920,
-            "height": 1080
+        "featureClassification": {
+          "provider": "openai",
+          "model": "gpt-5.4-mini",
+          "temperature": 0.1,
+          "maxTokens": 2000
         },
-        "wide": {
-            "width": 2560,
-            "height": 1440
+        "stepExecution": {
+          "provider": "openai",
+          "model": "gpt-5.4-mini",
+          "temperature": 0.1,
+          "maxTokens": 8000
+        },
+        "comparison": {
+          "provider": "openai",
+          "model": "gpt-5.4",
+          "temperature": 0.1,
+          "maxTokens": 16000
+        },
+        "codeGeneration": {
+          "provider": "openai",
+          "model": "gpt-5.4",
+          "temperature": 0.1,
+          "maxTokens": 30000
+        },
+        "documentation": {
+          "provider": "openai",
+          "model": "gpt-5.4-mini",
+          "temperature": 0.2,
+          "maxTokens": 16000
+        },
+        "summaryReportGeneration": {
+          "provider": "openai",
+          "model": "gpt-5.4",
+          "temperature": 0.2,
+          "maxTokens": 20000
+        },
+        "defectDrafting": {
+          "provider": "openai",
+          "model": "gpt-5.4-mini",
+          "temperature": 0.1,
+          "maxTokens": 4000
         }
-    },
-    "llm": {
-        "providers": {
-            "openai": {},
-            "bedrock": {
-                "region": "us-east-1"
-            },
-            "bedrockapi": {
-                "region": "us-east-1",
-                "anthropicVersion": "bedrock-2023-05-31"
-            },
-            "ghCopilot": {
-                "cwd": "./data/sessions",
-                "logLevel": "error",
-                "oneShotTimeoutMs": 300000,
-                "sessionTimeoutMs": 1800000,
-                "clientName": "autoqai"
-            },
-            "claudeCode": {
-                "cwd": "./data/sessions",
-                "oneShotTimeoutMs": 300000,
-                "sessionTimeoutMs": 1800000
-            }
+      },
+      "profiles": {
+        "CostOptimized": {
+          "vision": {
+            "model": "gpt-4o-mini"
+          },
+          "testCaseGeneration": {
+            "model": "gpt-4.1-mini",
+            "maxTokens": 20000
+          },
+          "stepExecution": {
+            "model": "gpt-4o-mini"
+          },
+          "documentation": {
+            "model": "gpt-4o-mini"
+          }
         },
-        "tasks": {
-            "default": {
-                "vision": {
-                    "provider": "openai",
-                    "model": "gpt-5.4-mini",
-                    "temperature": 0.1,
-                    "maxTokens": 4096
-                },
-                "testCaseGeneration": {
-                    "provider": "openai",
-                    "model": "gpt-5.4",
-                    "temperature": 0.2,
-                    "maxTokens": 30000
-                },
-                "testPlanGeneration": {
-                    "provider": "openai",
-                    "model": "gpt-5.4",
-                    "temperature": 0.3,
-                    "maxTokens": 16000
-                },
-                "featureClassification": {
-                    "provider": "openai",
-                    "model": "gpt-5.4-mini",
-                    "temperature": 0.1,
-                    "maxTokens": 2000
-                },
-                "stepExecution": {
-                    "provider": "openai",
-                    "model": "gpt-5.4-mini",
-                    "temperature": 0.1,
-                    "maxTokens": 8000
-                },
-                "comparison": {
-                    "provider": "openai",
-                    "model": "gpt-5.4",
-                    "temperature": 0.1,
-                    "maxTokens": 16000
-                },
-                "codeGeneration": {
-                    "provider": "openai",
-                    "model": "gpt-5.4",
-                    "temperature": 0.1,
-                    "maxTokens": 30000
-                },
-                "documentation": {
-                    "provider": "openai",
-                    "model": "gpt-5.4-mini",
-                    "temperature": 0.2,
-                    "maxTokens": 16000
-                },
-                "summaryReportGeneration": {
-                    "provider": "openai",
-                    "model": "gpt-5.4",
-                    "temperature": 0.2,
-                    "maxTokens": 20000
-                },
-                "defectDrafting": {
-                    "provider": "openai",
-                    "model": "gpt-5.4-mini",
-                    "temperature": 0.1,
-                    "maxTokens": 4000
-                }
-            },
-            "profiles": {
-                "CostOptimized": {
-                    "vision": {
-                        "model": "gpt-4o-mini"
-                    },
-                    "testCaseGeneration": {
-                        "model": "gpt-4.1-mini",
-                        "maxTokens": 20000
-                    },
-                    "stepExecution": {
-                        "model": "gpt-4o-mini"
-                    },
-                    "documentation": {
-                        "model": "gpt-4o-mini"
-                    }
-                },
-                "MostPerformant": {
-                    "stepExecution": {
-                        "model": "gpt-5.4",
-                        "maxTokens": 16000
-                    },
-                    "comparison": {
-                        "model": "gpt-5.4",
-                        "maxTokens": 32000
-                    },
-                    "testCaseGeneration": {
-                        "model": "gpt-5.4",
-                        "temperature": 0.1
-                    }
-                },
-                "GitHubCopilot": {
-                    "vision": {
-                        "provider": "gh-copilot",
-                        "model": "",
-                        "temperature": null,
-                        "maxTokens": null
-                    },
-                    "testCaseGeneration": {
-                        "provider": "gh-copilot",
-                        "model": "",
-                        "temperature": null,
-                        "maxTokens": null
-                    },
-                    "testPlanGeneration": {
-                        "provider": "gh-copilot",
-                        "model": "",
-                        "temperature": null,
-                        "maxTokens": null
-                    },
-                    "featureClassification": {
-                        "provider": "gh-copilot",
-                        "model": "",
-                        "temperature": null,
-                        "maxTokens": null
-                    },
-                    "stepExecution": {
-                        "provider": "gh-copilot",
-                        "model": "",
-                        "temperature": null,
-                        "maxTokens": null
-                    },
-                    "comparison": {
-                        "provider": "gh-copilot",
-                        "model": "",
-                        "temperature": null,
-                        "maxTokens": null
-                    },
-                    "codeGeneration": {
-                        "provider": "gh-copilot",
-                        "model": "",
-                        "temperature": null,
-                        "maxTokens": null
-                    },
-                    "documentation": {
-                        "provider": "gh-copilot",
-                        "model": "",
-                        "temperature": null,
-                        "maxTokens": null
-                    },
-                    "summaryReportGeneration": {
-                        "provider": "gh-copilot",
-                        "model": "",
-                        "temperature": null,
-                        "maxTokens": null
-                    },
-                    "defectDrafting": {
-                        "provider": "gh-copilot",
-                        "model": "",
-                        "temperature": null,
-                        "maxTokens": null
-                    }
-                },
-                "ClaudeCode": {
-                    "vision": {
-                        "provider": "claudecode",
-                        "model": "",
-                        "temperature": null,
-                        "maxTokens": null
-                    },
-                    "testCaseGeneration": {
-                        "provider": "claudecode",
-                        "model": "",
-                        "temperature": null,
-                        "maxTokens": null
-                    },
-                    "testPlanGeneration": {
-                        "provider": "claudecode",
-                        "model": "",
-                        "temperature": null,
-                        "maxTokens": null
-                    },
-                    "featureClassification": {
-                        "provider": "claudecode",
-                        "model": "",
-                        "temperature": null,
-                        "maxTokens": null
-                    },
-                    "stepExecution": {
-                        "provider": "claudecode",
-                        "model": "",
-                        "temperature": null,
-                        "maxTokens": null
-                    },
-                    "comparison": {
-                        "provider": "claudecode",
-                        "model": "",
-                        "temperature": null,
-                        "maxTokens": null
-                    },
-                    "codeGeneration": {
-                        "provider": "claudecode",
-                        "model": "",
-                        "temperature": null,
-                        "maxTokens": null
-                    },
-                    "documentation": {
-                        "provider": "claudecode",
-                        "model": "",
-                        "temperature": null,
-                        "maxTokens": null
-                    },
-                    "summaryReportGeneration": {
-                        "provider": "claudecode",
-                        "model": "",
-                        "temperature": null,
-                        "maxTokens": null
-                    },
-                    "defectDrafting": {
-                        "provider": "claudecode",
-                        "model": "",
-                        "temperature": null,
-                        "maxTokens": null
-                    }
-                }
-            },
-            "activeProfile": "GitHubCopilot"
-        }
-    },
-    "execution": {
-        "screenshotMode": "always",
-        "passiveFindings": {
-            "captureWarnings": false,
-            "failOnFinding": false
-        }
-    },
-    "logging": {
-        "logPrompts": true,
-        "debugLog": false
-    },
-    "cache": {
-        "enabled": true,
-        "useCached": false
-    },
-    "cost": {
-        "usdToInr": 94
-    },
-    "integrations": {
-        "jira": {
-            "baseUrl": null
+        "MostPerformant": {
+          "stepExecution": {
+            "model": "gpt-5.4",
+            "maxTokens": 16000
+          },
+          "comparison": {
+            "model": "gpt-5.4",
+            "maxTokens": 32000
+          },
+          "testCaseGeneration": {
+            "model": "gpt-5.4",
+            "temperature": 0.1
+          }
         },
-        "swaggerUrls": ["http://localhost:8080/swagger-v2.json", "http://localhost:8080/swagger-v3.json"]
+        "GitHubCopilot": {
+          "vision": {
+            "provider": "gh-copilot",
+            "model": "",
+            "temperature": null,
+            "maxTokens": null
+          },
+          "testCaseGeneration": {
+            "provider": "gh-copilot",
+            "model": "",
+            "temperature": null,
+            "maxTokens": null
+          },
+          "testPlanGeneration": {
+            "provider": "gh-copilot",
+            "model": "",
+            "temperature": null,
+            "maxTokens": null
+          },
+          "featureClassification": {
+            "provider": "gh-copilot",
+            "model": "",
+            "temperature": null,
+            "maxTokens": null
+          },
+          "stepExecution": {
+            "provider": "gh-copilot",
+            "model": "",
+            "temperature": null,
+            "maxTokens": null
+          },
+          "comparison": {
+            "provider": "gh-copilot",
+            "model": "",
+            "temperature": null,
+            "maxTokens": null
+          },
+          "codeGeneration": {
+            "provider": "gh-copilot",
+            "model": "",
+            "temperature": null,
+            "maxTokens": null
+          },
+          "documentation": {
+            "provider": "gh-copilot",
+            "model": "",
+            "temperature": null,
+            "maxTokens": null
+          },
+          "summaryReportGeneration": {
+            "provider": "gh-copilot",
+            "model": "",
+            "temperature": null,
+            "maxTokens": null
+          },
+          "defectDrafting": {
+            "provider": "gh-copilot",
+            "model": "",
+            "temperature": null,
+            "maxTokens": null
+          }
+        },
+        "ClaudeCode": {
+          "vision": {
+            "provider": "claudecode",
+            "model": "claude-sonnet-4-6",
+            "temperature": null,
+            "maxTokens": null
+          },
+          "testCaseGeneration": {
+            "provider": "claudecode",
+            "model": "claude-sonnet-4-6",
+            "temperature": null,
+            "maxTokens": null
+          },
+          "testPlanGeneration": {
+            "provider": "claudecode",
+            "model": "claude-sonnet-4-6",
+            "temperature": null,
+            "maxTokens": null
+          },
+          "featureClassification": {
+            "provider": "claudecode",
+            "model": "claude-sonnet-4-6",
+            "temperature": null,
+            "maxTokens": null
+          },
+          "stepExecution": {
+            "provider": "claudecode",
+            "model": "claude-sonnet-4-6",
+            "temperature": null,
+            "maxTokens": null
+          },
+          "comparison": {
+            "provider": "claudecode",
+            "model": "claude-sonnet-4-6",
+            "temperature": null,
+            "maxTokens": null
+          },
+          "codeGeneration": {
+            "provider": "claudecode",
+            "model": "claude-sonnet-4-6",
+            "temperature": null,
+            "maxTokens": null
+          },
+          "documentation": {
+            "provider": "claudecode",
+            "model": "claude-sonnet-4-6",
+            "temperature": null,
+            "maxTokens": null
+          },
+          "summaryReportGeneration": {
+            "provider": "claudecode",
+            "model": "claude-sonnet-4-6",
+            "temperature": null,
+            "maxTokens": null
+          },
+          "defectDrafting": {
+            "provider": "claudecode",
+            "model": "claude-sonnet-4-6",
+            "temperature": null,
+            "maxTokens": null
+          }
+        }
+      },
+      "activeProfile": "ClaudeCode"
+    }
+  },
+  "execution": {
+    "screenshotMode": "always",
+    "passiveFindings": {
+      "captureWarnings": false,
+      "failOnFinding": false
+    }
+  },
+  "logging": {
+    "logPrompts": true,
+    "debugLog": false
+  },
+  "cache": {
+    "enabled": true,
+    "useCached": false
+  },
+  "cost": {
+    "usdToInr": 94
+  },
+  "integrations": {
+    "jira": {
+      "baseUrl": null
     },
-    "devMode": true
+    "swaggerUrls": [
+      "http://localhost:8080/swagger-v2.json",
+      "http://localhost:8080/swagger-v3.json"
+    ]
+  },
+  "devMode": true
 }
