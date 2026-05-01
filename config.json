@@ -15,7 +15,16 @@
     },
     "extensionPath": null,
     "userDataDir": null,
-    "launchUrl": null
+    "launchUrl": null,
+    "security": {
+      "disableCors": true,
+      "ignoreCertificateErrors": false,
+      "disablePopupBlocking": false,
+      "disableNotifications": false,
+      "allowInsecureContent": false,
+      "disableXssAuditor": false,
+      "disableFeaturePolicy": false
+    }
   },
   "resolutions": {
     "mobile": {
@@ -305,10 +314,7 @@
     "jira": {
       "baseUrl": null
     },
-    "swaggerUrls": [
-      "http://localhost:8080/swagger-v2.json",
-      "http://localhost:8080/swagger-v3.json"
-    ]
+    "swaggerUrls": []
   },
   "devMode": true
 }
