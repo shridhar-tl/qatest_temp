@@ -69,6 +69,9 @@
         "cwd": "./data/sessions",
         "oneShotTimeoutMs": 300000,
         "sessionTimeoutMs": 1800000
+      },
+      "ollama": {
+        "baseUrl": "http://127.0.0.1:11434"
       }
     },
     "tasks": {
@@ -222,6 +225,68 @@
           "defectDrafting": {
             "provider": "gh-copilot",
             "model": "",
+            "temperature": null,
+            "maxTokens": null
+          }
+        },
+        "Ollama": {
+          "vision": {
+            "provider": "ollama",
+            "model": "moondream:latest",
+            "temperature": null,
+            "maxTokens": null
+          },
+          "testCaseGeneration": {
+            "provider": "ollama",
+            "model": "qwen2.5-coder:3b-instruct",
+            "temperature": null,
+            "maxTokens": null
+          },
+          "testPlanGeneration": {
+            "provider": "ollama",
+            "model": "qwen2.5-coder:3b-instruct",
+            "temperature": null,
+            "maxTokens": null
+          },
+          "featureClassification": {
+            "provider": "ollama",
+            "model": "qwen2.5-coder:3b-instruct",
+            "temperature": null,
+            "maxTokens": null
+          },
+          "stepExecution": {
+            "provider": "ollama",
+            "model": "qwen2.5-coder:3b-instruct",
+            "temperature": null,
+            "maxTokens": null
+          },
+          "comparison": {
+            "provider": "ollama",
+            "model": "moondream:latest",
+            "temperature": null,
+            "maxTokens": null
+          },
+          "codeGeneration": {
+            "provider": "ollama",
+            "model": "qwen2.5-coder:3b-instruct",
+            "temperature": null,
+            "maxTokens": null
+          },
+          "documentation": {
+            "provider": "ollama",
+            "model": "qwen2.5-coder:3b-instruct",
+            "temperature": null,
+            "maxTokens": null
+          },
+          "summaryReportGeneration": {
+            "provider": "ollama",
+            "model": "qwen2.5-coder:3b-instruct",
+            "temperature": null,
+            "maxTokens": null
+          },
+          "defectDrafting": {
+            "provider": "ollama",
+            "model": "qwen2.5-coder:3b-instruct",
             "temperature": null,
             "maxTokens": null
           }
