@@ -349,6 +349,7 @@
     },
     "execution": {
         "screenshotMode": "always",
+        "imageCompression": "auto",
         "passiveFindings": {
             "captureWarnings": false,
             "failOnFinding": false
